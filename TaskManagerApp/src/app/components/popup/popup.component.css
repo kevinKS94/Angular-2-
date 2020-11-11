@@ -1,0 +1,33 @@
+.formPop{
+    position: fixed;
+    top: 10vh;
+    left: 40vw;
+    background-color: white;
+    border: solid 6px lightgreen;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.errorMSJ{
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
+p{
+    margin-left: 5px;
+}
+input,textarea,select{
+    border-radius: 5px;
+    border: solid 1px black;
+}
+
+
+/*al error le damos inspeccionar (en el navegador) chequeamos las clases que le asigna angular automaticamente y
+las usamos para darle css dinamico*/
+input.ng-pristine.ng-invalid.ng-touched{
+    border: green solid 3px;
+    border-radius: 5px;
+}

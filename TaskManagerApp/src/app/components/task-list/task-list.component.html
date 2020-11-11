@@ -1,0 +1,10 @@
+<app-task-item *ngFor="let task of tasks" [task]='task' (toggled)='processToggled($event)'>
+</app-task-item>
+
+<!-- falta recibir onCancel() -->
+<app-popup (addTask)='addTask($event)' [newTask]='currentTask'  (cancel)='onDone()' *ngIf='currentTask'></app-popup>
+
+<div class="botones">
+    <button class="add" (click)="newTask()">Add</button>
+    <button class="delete" (click)='onDelete(markedTasks)'><i class="fas fa-trash"></i></button>
+</div>

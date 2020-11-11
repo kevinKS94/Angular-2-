@@ -1,0 +1,27 @@
+.botones{
+    position: fixed;
+    top: 25px;
+    right: 45px;
+    width: 85px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.add{
+    font-size: 14px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: green;
+    color: white;
+}
+.delete{
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+}
+
+.add:hover,.delete:hover{
+    cursor: pointer;
+    border-radius: 0px;
+}

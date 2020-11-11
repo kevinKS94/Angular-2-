@@ -1,0 +1,11 @@
+<app-popup-edit (editTask)="processEditTask($event)" [newEdit]='taskAbierta' *ngIf='taskAbierta' (cancel)='processCancel($event)'></app-popup-edit>
+
+<div class="card">
+    <input type="checkbox" [(ngModel)]="toggleValue" (change)='onToggle()'>
+    <ul class="list-group">
+        <li class="list-group-item"><h1>{{ task.name }}</h1><i (click)='changeTask(task)' class="fas fa-edit"></i></li>
+        <li class="list-group-item">{{ task.description }}</li><br>
+        <li class="list-group-item"><h5>Estimated Time:</h5><p>{{ task.estimate }} hs</p></li>
+        <li class="list-group-item"><h5>Status:</h5><p>{{ task.state }}</p></li>
+    </ul><br>
+</div>

@@ -1,0 +1,23 @@
+<div class="formPop">
+    
+    <h1>Editing task!</h1>
+    <p>Name:</p>
+    <input type="text" [(ngModel)]="newEdit.name" value="newEdit.name" required><br>
+
+    <p>Description:</p>
+    <textarea [(ngModel)]="newEdit.description" value="newEdit.description"></textarea><br>
+
+    <p>Estimate: (hs)</p>
+    <input type="text" [(ngModel)]="newEdit.estimate" value="newEdit.estimate"><br>
+
+    <p>Select Satus:</p>
+    <select [(ngModel)]="newEdit.state" value="newEdit.state">
+        <option value="planned">Planned</option>
+        <option value="InProgress">In Progress</option>
+        <option value="completed">Completed</option>
+    </select><br>
+
+    <button type='submit' (click)='onSaveEdit(newEdit)'>Guardar</button>
+    <button (click)='onCancelEdit()'>Cerrar</button>
+
+</div>

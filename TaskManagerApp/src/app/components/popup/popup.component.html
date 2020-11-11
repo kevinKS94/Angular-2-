@@ -1,0 +1,26 @@
+<div class="formPop">
+    
+        <h1>Adding task!</h1>
+        <p>Name:</p>
+        <!-- input obligatorio configurado... para mayores configuraciones jugar con el objeto que devuelve el console.log y 
+        fijar las condiciones que se quiera-->
+        <!-- <div class="errorMSJ" *ngIf='name.touched && !name.valid'>*Task name is required*</div> -->
+        <input type="text" [(ngModel)]="newTask.name" required><br>
+
+        <p>Description:</p>
+        <textarea [(ngModel)]="newTask.description"></textarea><br>
+
+        <p>Estimate: (hs)</p>
+        <input type="text" [(ngModel)]="newTask.estimate"><br>
+
+        <p>Select Satus:</p>
+        <select [(ngModel)]="newTask.state">
+            <option value="planned">Planned</option>
+            <option value="InProgress">In Progress</option>
+            <option value="completed">Completed</option>
+        </select><br>
+
+        <button type='submit' (click)='onSave()'>Guardar</button>
+        <button (click)='onCancel()'>Cerrar</button>
+    
+</div>
