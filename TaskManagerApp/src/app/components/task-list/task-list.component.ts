@@ -22,6 +22,8 @@ export class TaskListComponent implements OnInit {
 
   markedTasks:Task[] = [];
 
+  orderValue:string;
+
   constructor(private taskService:TaskService) {}
 
   //Arranque:
@@ -31,13 +33,53 @@ export class TaskListComponent implements OnInit {
     })
   }
 
+  //Consigna 2 PINNACLE ordenar tareas
+  orderBy(orderValue:string) {
+    orderValue == 'estimatedTime' ? this.tasks.sort(function(a,b){
+      if(a.estimate > b.estimate){
+        return 1;
+      }
+      if(a.estimate < b.estimate){
+        return -1;
+      }
+      return 0;
+    }) :
+    orderValue == 'name' ? this.tasks.sort(function(a,b){
+      if(a.name.toLowerCase() > b.name.toLowerCase()){
+        return 1;
+      }
+      if(a.name.toLowerCase() < b.name.toLowerCase()){
+        return -1;
+      }
+      return 0;
+    }) : 
+    orderValue == 'status' ? this.tasks.sort(function(a,b){
+      if(a.state.toLowerCase() > b.state.toLowerCase()){
+        return 1;
+      }
+      if(a.state.toLowerCase() < b.state.toLowerCase()){
+        return -1;
+      }
+      return 0;
+    }).reverse() : 
+    orderValue == 'dueDate' ? this.tasks.sort(function(a,b){
+      if(a.dueDate > b.dueDate){
+        return 1;
+      }
+      if(a.dueDate < b.dueDate){
+        return -1;
+      }
+      return 0;
+    }) : '';
+  }
+
   //Cargar nueva tarea:
   newTask() {
     this.currentTask = new Task();
   }
 
   //Concluir carga de nueva tarea
-  addTask(task:Task){
+  processAddTask(task:Task){
     this.taskService.addTask(task).subscribe(task =>{
       this.tasks.push(task);
     })
@@ -97,7 +139,7 @@ export class TaskListComponent implements OnInit {
 
   //VERSION DEFINITIVA YA QUE JSON SERVER CRASHEA SI SE MANDAN MUCHOS DATOS A LA VEZ
   recursiveDelete(markedTasks: Task[]): Promise<any>{
-    let volverPromise = new Promise((resolve,reject)=>{
+    let volverPromise = new Promise<void>((resolve,reject)=>{
       if (markedTasks && markedTasks.length !== 0) {
         const promise = this.taskService.deleteTask(markedTasks[0]).toPromise();
         promise.then(() => {

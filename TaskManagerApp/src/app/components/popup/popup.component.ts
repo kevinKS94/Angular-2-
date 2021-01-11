@@ -13,15 +13,14 @@ export class PopupComponent implements OnInit {
   @Output() addTask = new EventEmitter(); 
   @Output() cancel = new EventEmitter();  
 
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
 
   onSave(){
     this.newTask.mark = false;
-    this.newTask.id = Math.round(100000000*Math.random());
+    this.newTask.id = new Date().getTime();
     console.log(this.newTask);
     this.addTask.emit(this.newTask);
   }

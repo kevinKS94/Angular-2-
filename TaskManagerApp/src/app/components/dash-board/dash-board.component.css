@@ -10,6 +10,8 @@
     border-radius: 15px;
     margin-bottom: 10px;
     width: 250px;
+    margin-left: 5px;
+    margin-right: 5px;
     background-color:lightcoral;
     -webkit-box-shadow: 10px 11px 0px -3px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 11px 0px -3px rgba(0,0,0,0.75);
@@ -30,5 +32,12 @@ h1{
     position: relative;
     left: 140px;
     bottom: 31px;
+    width: 5px;
     font-weight: 500;
+}
+
+@media(max-width:768px){
+    .mayor{
+        flex-wrap: wrap;
+    }
 }

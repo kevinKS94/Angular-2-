@@ -1,8 +1,19 @@
+<!-- Consigna 2 PINNACLE drop down: -->
+<div class="dropdown">
+    <label for="list">Order By: </label>
+    <select name="list" id="list" [(ngModel)]="orderValue" (change)="orderBy(orderValue)">
+        <option value="name">Name</option>
+        <option value="estimatedTime">Estimated Time</option>
+        <option value="dueDate">Due Date</option>
+        <option value="status">Status</option>
+    </select>
+</div>
+
 <app-task-item *ngFor="let task of tasks" [task]='task' (toggled)='processToggled($event)'>
 </app-task-item>
 
-<!-- falta recibir onCancel() -->
-<app-popup (addTask)='addTask($event)' [newTask]='currentTask'  (cancel)='onDone()' *ngIf='currentTask'></app-popup>
+<!-- falta recibir onCancel()                                                         ngIf hace que aparezca o no el contenido en el DOM -->
+<app-popup (addTask)='processAddTask($event)' [newTask]='currentTask'  (cancel)='onDone()' *ngIf='currentTask'></app-popup>
 
 <div class="botones">
     <button class="add" (click)="newTask()">Add</button>

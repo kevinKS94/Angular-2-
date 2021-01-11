@@ -7,11 +7,11 @@
         <!-- <div class="errorMSJ" *ngIf='name.touched && !name.valid'>*Task name is required*</div> -->
         <input type="text" [(ngModel)]="newTask.name" required><br>
 
+        <p>Due Date:</p>
+        <input type="date" [(ngModel)]="newTask.dueDate"><br>
+
         <p>Description:</p>
         <textarea [(ngModel)]="newTask.description"></textarea><br>
-
-        <p>Estimate: (hs)</p>
-        <input type="text" [(ngModel)]="newTask.estimate"><br>
 
         <p>Select Satus:</p>
         <select [(ngModel)]="newTask.state">
@@ -19,6 +19,9 @@
             <option value="InProgress">In Progress</option>
             <option value="completed">Completed</option>
         </select><br>
+
+        <p>Estimate: (hs)</p>
+        <input type="number" min="0" max="99" [(ngModel)]="newTask.estimate"><br>
 
         <button type='submit' (click)='onSave()'>Guardar</button>
         <button (click)='onCancel()'>Cerrar</button>

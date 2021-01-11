@@ -4,5 +4,6 @@ export class Task{
         description: string;
         estimate: number;
         state: string;
+        dueDate : number | string;
         mark: boolean;
 }

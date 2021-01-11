@@ -1,13 +1,14 @@
 .formPop{
     position: fixed;
     top: 10vh;
-    left: 40vw;
+    left: calc(50vw - 175px);
     background-color: white;
     border: solid 6px crimson;
     width: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 1;
 }
 
 .errorMSJ{
@@ -30,5 +31,13 @@ button{
     border-right: 1px solid #848484;
     border-bottom: 1px solid #848484;
     background-color: darkgray;
-    padding: 3px 15px 3px 15px;
+    padding: 1px 15px 3px 15px;
+}
+
+@media (max-width:450px){
+    .formPop{
+        left: calc(50vw - 81px);
+        width: 162px;
+        top: 0vh;
+    }
 }

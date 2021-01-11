@@ -1,13 +1,14 @@
 .formPop{
     position: fixed;
     top: 10vh;
-    left: 40vw;
+    left: calc(50vw - 175px);
     background-color: white;
     border: solid 6px lightgreen;
     width: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 2;
 }
 
 .errorMSJ{
@@ -30,4 +31,13 @@ las usamos para darle css dinamico*/
 input.ng-pristine.ng-invalid.ng-touched{
     border: green solid 3px;
     border-radius: 5px;
+}
+
+
+@media (max-width:450px){
+    .formPop{
+        left: calc(50vw - 81px);
+        width: 162px;
+        top: 0vh;
+    }
 }
